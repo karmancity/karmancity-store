@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: karmancity/karmancity-store
+  name: git-gateway
   branch: principal
 
 media_folder: "images/uploads"
@@ -19,7 +18,22 @@ label: "Productos"
       name: "productos"
       widget: "list"
       fields:
-{ label: "Nombre", name: "nombre", widget: "string" }
-{ label: "Precio", name: "precio", widget: "string" }
-{ label: "Descripción", name: "descripcion", widget: "text" }
-{ label: "Foto", name: "foto", widget: "image", required: false }
+label: "Nombre"
+        name: "nombre"
+        widget: "string"
+
+              
+label: "Precio"
+              name: "precio"
+              widget: "number"
+
+              
+label: "Descripción"
+              name: "descripcion"
+              widget: "text"
+
+              
+label: "Foto"
+              name: "foto"
+              widget: "image"
+              required: false
