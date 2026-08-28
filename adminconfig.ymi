@@ -1,0 +1,25 @@
+backend:
+  name: github
+  repo: karmancity/karmancity-store
+  branch: principal
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  
+name: "productos"
+  label: "Productos"
+  files:
+file: "productos.json"
+    label: "Catálogo de productos"
+    name: "catalogo"
+    fields:
+label: "Productos"
+      name: "productos"
+      widget: "list"
+      fields:
+{ label: "Nombre", name: "nombre", widget: "string" }
+{ label: "Precio", name: "precio", widget: "string" }
+{ label: "Descripción", name: "descripcion", widget: "text" }
+{ label: "Foto", name: "foto", widget: "image", required: false }
