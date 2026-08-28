@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KarmanCity | Tienda Oficial</title>
+
+    <meta name="description" content="KarmanCity - Tienda oficial. Ropa y productos exclusivos.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080808;
+            color: white;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(5, 5, 5, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #222;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: auto;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 25px;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: white;
+        }
+
+        .logo span {
+            color: #e00000;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #e00000;
+        }
+
+        .cart-button {
+            background: #e00000;
+            border: none;
+            color: white;
+            padding: 11px 17px;
+            border-radius: 7px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .cart-button:hover {
+            background: #ff1a1a;
+            transform: scale(1.05);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 70px;
+            background:
+                radial-gradient(circle at center, #2a0000 0%, #100000 25%, #080808 65%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: #e00000;
+            opacity: 0.08;
+            filter: blur(150px);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 10vw, 120px);
+            font-weight: 900;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: #e00000;
+        }
+
+        .hero p {
+            margin-top: 20px;
+            color: #bbb;
+            font-size: 20px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 16px 32px;
+            background: #e00000;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 17px;
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            background: #ff1a1a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(224, 0, 0, 0.35);
+        }
+
+        /* =========================
+           PRODUCTS
+        ========================= */
+
+        .products-section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 100px 25px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            text-transform: uppercase;
+        }
+
+        .section-title h2 span {
+            color: #e00000;
+        }
+
+        .section-title p {
+            color: #888;
+            margin-top: 10px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .product {
+            background: #111;
+            border: 1px solid #252525;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-8px);
+            border-color: #e00000;
+            box-shadow: 0 15px 40px rgba(224, 0, 0, 0.12);
+        }
+
+        .product-image {
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background:
+                linear-gradient(135deg, #191919, #090909);
+            position: relative;
+        }
+
+        .product-image::after {
+            content: "KARMANCITY";
+            font-size: 32px;
+            font-weight: 900;
+            color: #252525;
+            letter-spacing: 2px;
+        }
+
+        .product-info {
+            padding: 22px;
+        }
+
+        .product-info h3 {
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            color: #888;
+            font-size: 14px;
+            min-height: 40px;
+        }
+
+        .product-bottom {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 22px;
+            font-weight: bold;
+            color: #e00000;
+        }
+
+        .add-button {
+            border: none;
+            background: #e00000;
+            color: white;
+            padding: 11px 15px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .add-button:hover {
+            background: #ff1a1a;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            padding: 100px 25px;
+            background: #0e0e0e;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .about h2 span {
+            color: #e00000;
+        }
+
+        .about p {
+            color: #aaa;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            max-width: 900px;
+            margin: auto;
+            padding: 100px 25px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .contact h2 span {
+            color: #e00000;
+        }
+
+        .contact p {
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 14px 25px;
+            background: #e00000;
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+            font-weight: bold;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 30px;
+            text-align: center;
+            background: #050505;
+            border-top: 1px solid #222;
+            color: #666;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        /* =========================
+           CART
+        ========================= */
+
+        .cart {
+            position: fixed;
+            top: 0;
+            right: -420px;
+            width: 400px;
+            max-width: 90%;
+            height: 100vh;
+            background: #111;
+            z-index: 2000;
+            padding: 25px;
+            border-left: 1px solid #333;
+            transition: 0.4s;
+            box-shadow: -10px 0 40px rgba(0,0,0,0.5);
+        }
+
+        .cart.active {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+
+        .cart-header h2 {
+            font-size: 25px;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .cart-items {
+            margin-top: 25px;
+            max-height: 55vh;
+            overflow-y: auto;
+        }
+
+        .cart-item {
+            background: #191919;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 7px;
+        }
+
+        .cart-item strong {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .remove-item {
+            margin-top: 8px;
+            background: #333;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cart-total {
+            position: absolute;
+            bottom: 25px;
+            left: 25px;
+            right: 25px;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+
+        .total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .checkout {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            background: #e00000;
+            color: white;
+            border-radius: 7px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .checkout:hover {
+            background: #ff1a1a;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            nav {
+                display: none;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+            }
+
+            .section-title h2,
+            .about h2,
+            .contact h2 {
+                font-size: 32px;
+            }
+
+            .product-image {
+                height: 250px;
+            }
+
+            .cart {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+        <div class="nav">
+
+            <div class="logo">
+                KARMAN<span>CITY</span>
+            </div>
+
+            <nav>
+                <a href="#inicio">Inicio</a>
+                <a href="#tienda">Tienda</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+
+            <button class="cart-button" onclick="openCart()">
+                🛒 Carrito (<span id="cart-count">0</span>)
+            </button>
+
+        </div>
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero" id="inicio">
+
+        <div class="hero-content">
+
+            <h1>
+                KARMAN<span>CITY</span>
+            </h1>
+
+            <p>
+                Ropa urbana. Estilo propio. La ciudad es nuestra.
+            </p>
+
+            <a href="#tienda" class="hero-button">
+                VER COLECCIÓN
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         TIENDA
+    ========================== -->
+
+    <section class="products-section" id="tienda">
+
+        <div class="section-title">
+
+            <h2>
+                NUEVA <span>COLECCIÓN</span>
+            </h2>
+
+            <p>
+                Descubre los productos exclusivos de KarmanCity.
+            </p>
+
+        </div>
+
+
+        <div class="products">
+
+            <!-- PRODUCTO 1 -->
+
+            <div class="product">
+
+                <div class="product-image"></div>
+
+                <div class="product-info">
+
+                    <h3>Camiseta KarmanCity</h3>
+
+                    <p>
+                        Camiseta urbana KarmanCity edición oficial.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <span class="price">24,99 €</span>
+
+                        <button
+                            class="add-button"
+                            onclick="addToCart('Camiseta KarmanCity', 24.99)">
+                            AÑADIR
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCTO 2 -->
+
+            <div class="product">
+
+                <div class="product-image"></div>
+
+                <div class="product-info">
+
+                    <h3>Sudadera KarmanCity</h3>
+
+                    <p>
+                        Sudadera urbana premium con diseño KarmanCity.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <span class="price">49,99 €</span>
+
+                        <button
+                            class="add-button"
+                            onclick="addToCart('Sudadera KarmanCity', 49.99)">
+                            AÑADIR
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCTO 3 -->
+
+            <div class="product">
+
+                <div class="product-image"></div>
+
+                <div class="product-info">
+
+                    <h3>Gorra KarmanCity</h3>
+
+                    <p>
+                        Gorra urbana ajustable con logo KarmanCity.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <span class="price">19,99 €</span>
+
+                        <button
+                            class="add-button"
+                            onclick="addToCart('Gorra KarmanCity', 19.99)">
+                            AÑADIR
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCTO 4 -->
+
+            <div class="product">
+
+                <div class="product-image"></div>
+
+                <div class="product-info">
+
+                    <h3>Pantalón KarmanCity</h3>
+
+                    <p>
+                        Pantalón estilo urbano para completar tu outfit.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <span class="price">44,99 €</span>
+
+                        <button
+                            class="add-button"
+                            onclick="addToCart('Pantalón KarmanCity', 44.99)">
+                            AÑADIR
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCTO 5 -->
+
+            <div class="product">
+
+                <div class="product-image"></div>
+
+                <div class="product-info">
+
+                    <h3>Pack KarmanCity</h3>
+
+                    <p>
+                        Pack especial camiseta + gorra.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <span class="price">39,99 €</span>
+
+                        <button
+                            class="add-button"
+                            onclick="addToCart('Pack KarmanCity', 39.99)">
+                            AÑADIR
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCTO 6 -->
+
+            <div class="product">
+
+                <div class="product-image"></div>
+
+                <div class="product-info">
+
+                    <h3>Sudadera Premium</h3>
+
+                    <p>
+                        Edición premium limitada KarmanCity.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <span class="price">59,99 €</span>
+
+                        <button
+                            class="add-button"
+                            onclick="addToCart('Sudadera Premium', 59.99)">
+                            AÑADIR
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         NOSOTROS
+    ========================== -->
+
+    <section class="about" id="nosotros">
+
+        <div class="about-content">
+
+            <h2>
+                BIENVENIDO A <span>KARMANCITY</span>
+            </h2>
+
+            <p>
+                KarmanCity nace de la cultura urbana, la música y el mundo
+                digital. Una marca creada para quienes quieren llevar su
+                propio estilo y formar parte de una comunidad.
+                <br><br>
+                No seguimos tendencias.
+                <strong>CREAMOS LA NUESTRA.</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACTO
+    ========================== -->
+
+    <section class="contact" id="contacto">
+
+        <h2>
+            ¿TIENES <span>ALGUNA DUDA?</span>
+        </h2>
+
+        <p>
+            Ponte en contacto con KarmanCity.
+        </p>
+
+        <a
+            href="mailto:contacto@karmancity.com"
+            class="contact-button">
+            CONTACTAR
+        </a>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 <strong>KarmanCity</strong>.
+            Todos los derechos reservados.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         CARRITO
+    ========================== -->
+
+    <div class="cart" id="cart">
+
+        <div class="cart-header">
+
+            <h2>Tu carrito</h2>
+
+            <button
+                class="close-cart"
+                onclick="closeCart()">
+                ×
+            </button>
+
+        </div>
+
+
+        <div
+            class="cart-items"
+            id="cart-items">
+
+            <p style="color:#777;">
+                Tu carrito está vacío.
+            </p>
+
+        </div>
+
+
+        <div class="cart-total">
+
+            <div class="total">
+
+                <span>Total</span>
+
+                <span id="cart-total">
+                    0,00 €
+                </span>
+
+            </div>
+
+            <button
+                class="checkout"
+                onclick="checkout()">
+                FINALIZAR COMPRA
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        let cart = [];
+
+
+        function addToCart(name, price) {
+
+            cart.push({
+                name: name,
+                price: price
+            });
+
+            updateCart();
+
+            openCart();
+        }
+
+
+        function removeFromCart(index) {
+
+            cart.splice(index, 1);
+
+            updateCart();
+        }
+
+
+        function updateCart() {
+
+            const itemsContainer =
+                document.getElementById("cart-items");
+
+            const count =
+                document.getElementById("cart-count");
+
+            const totalElement =
+                document.getElementById("cart-total");
+
+
+            count.textContent = cart.length;
+
+
+            if (cart.length === 0) {
+
+                itemsContainer.innerHTML =
+                    '<p style="color:#777;">Tu carrito está vacío.</p>';
+
+                totalElement.textContent =
+                    "0,00 €";
+
+                return;
+            }
+
+
+            let total = 0;
+
+            itemsContainer.innerHTML = "";
+
+
+            cart.forEach((item, index) => {
+
+                total += item.price;
+
+                const div =
+                    document.createElement("div");
+
+                div.className = "cart-item";
+
+
+                div.innerHTML = `
+
+                    <strong>${item.name}</strong>
+
+                    <span>
+                        ${item.price.toFixed(2).replace(".", ",")} €
+                    </span>
+
+                    <br>
+
+                    <button
+                        class="remove-item"
+                        onclick="removeFromCart(${index})">
+                        Eliminar
+                    </button>
+
+                `;
+
+
+                itemsContainer.appendChild(div);
+
+            });
+
+
+            totalElement.textContent =
+                total.toFixed(2).replace(".", ",") + " €";
+        }
+
+
+        function openCart() {
+
+            document
+                .getElementById("cart")
+                .classList.add("active");
+        }
+
+
+        function closeCart() {
+
+            document
+                .getElementById("cart")
+                .classList.remove("active");
+        }
+
+
+        function checkout() {
+
+            if (cart.length === 0) {
+
+                alert("Tu carrito está vacío.");
+
+                return;
+            }
+
+
+            alert(
+                "¡Gracias por tu compra en KarmanCity! 🚀\n\n" +
+                "El sistema de pago todavía no está conectado."
+            );
+        }
+
+    </script>
+
+</body>
+</html>
